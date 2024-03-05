@@ -5,13 +5,12 @@ import org.jetbrains.assignment.Model.Move;
 import org.jetbrains.assignment.Model.Steps;
 import org.jetbrains.assignment.Repositories.StepRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.Arrays;
-import java.util.Collections;
+import java.util.UUID;
 
 @RestController
 public class LocationController {
@@ -28,16 +27,16 @@ public class LocationController {
             int stepsCount = moves[i].getSteps();
             switch (direction) {
                 case NORTH:
-                    steps[i] = new Steps( 0, stepsCount);
+                    steps[i] = new Steps(UUID.randomUUID(), 0, stepsCount);
                     break;
                 case SOUTH:
-                    steps[i] = new Steps(0, -stepsCount);
+                    steps[i] = new Steps(UUID.randomUUID(),0, -stepsCount);
                     break;
                 case EAST:
-                    steps[i] = new Steps(stepsCount, 0);
+                    steps[i] = new Steps(UUID.randomUUID(), stepsCount, 0);
                     break;
                 case WEST:
-                    steps[i] = new Steps(-stepsCount, 0);
+                    steps[i] = new Steps(UUID.randomUUID(), -stepsCount, 0);
                     break;
             }
         }

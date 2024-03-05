@@ -14,14 +14,14 @@ import java.util.UUID;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
+@Table(name = "STEPS")
 public class Steps {
-    private int x;
-    private int y;
     @Id
     @Column(name = "id", updatable = false, nullable = false)
-    @Builder.Default
-    private Long id = UUID.randomUUID().getMostSignificantBits() & Long.MAX_VALUE;
+    private UUID id;
+    @Column
+    private int x;
+    @Column
+    private int y;
 
-    public Steps(int i, int stepsCount) {
-    }
 }
