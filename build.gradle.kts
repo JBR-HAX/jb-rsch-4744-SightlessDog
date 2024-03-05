@@ -17,9 +17,16 @@ repositories {
 
 dependencies {
     implementation("org.springframework.boot:spring-boot-starter-web")
+    // Add lombok dependency
+    implementation("org.projectlombok:lombok")
+    // Add jpa dependency
+    implementation("org.springframework.boot:spring-boot-starter-data-jpa")
+    // Add h2 database dependency
+    runtimeOnly("com.h2database:h2")
     testImplementation("org.springframework.boot:spring-boot-starter-test")
     testImplementation("org.testcontainers:junit-jupiter")
     //add dependencies as needed
+    annotationProcessor("org.projectlombok:lombok")
 }
 
 tasks.withType<Test> {
